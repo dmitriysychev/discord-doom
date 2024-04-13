@@ -2,5 +2,6 @@ discord.py >= 2.3.2
 python-dotenv
 opengsq
 asyncio
-socket
 pycord
+sqlite3
+requests
