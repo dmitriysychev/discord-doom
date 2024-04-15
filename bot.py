@@ -152,7 +152,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('У вас нет необходимой роли для выполнения этой команды')
 
-@bot.slash_command(name='run', description='Technical command',guild_ids=[GUILD_ID])
+@commands.slash_command(name='run', description='Technical command',guild_ids=[GUILD_ID])
 async def run(ctx, *, cmd:str):
         try:
             # Running the subprocess and capturing output
