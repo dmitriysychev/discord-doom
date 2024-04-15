@@ -33,5 +33,5 @@ class RapiAPI(common.commands.Cog):
     def pda(self, uri, params):
         requests.get(f"https://discord-webhook-api.p.rapidapi.com/{uri}", headers=pda_headers, params=params)
 
-async def setup(bot):
-    await bot.add_cog(RapiAPI(bot))
+def setup(bot):
+    bot.add_cog(RapiAPI(bot))
