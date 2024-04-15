@@ -35,12 +35,12 @@ async def end_poll(message, channel, early=False):
         results[reaction.emoji] = reaction.count - 1  # subtract one to exclude the bot's own reaction
 
     # Create and send the result embed
-    description = "\n".join([f"{key}: {val} votes" for key, val in results.items()])
+    description = "\n".join([f"Количестов за опцию {key}: {val} " for key, val in results.items()])
     embed = common.discord.Embed(title="Результаты голосования", description=description, color=0x00ff00)
     await channel.send(embed=embed)
 
     if early:
-        await channel.send("Poll ended early by an admin.")
+        await channel.send("Голосование было закончено раньше")
 
 class PollCog(common.commands.Cog):
     def __init__(self, bot):
@@ -70,7 +70,7 @@ class PollCog(common.commands.Cog):
         await poll_message.edit(view=view)
 
         # Setup timer for the poll duration
-        await asyncio.sleep(5)  # Wait for 1 hour
+        await asyncio.sleep(600)  # Wait for 10 minutes
         if not button.view.is_finished():
             await end_poll(poll_message, ctx.channel)
 
