@@ -96,5 +96,5 @@ class ButtonRoleCog(common.commands.Cog):
         self.bot.add_view(view)
 
 
-def setup(bot):
-    bot.add_cog(ButtonRoleCog(bot))
+async def setup(bot):
+    await bot.add_cog(ButtonRoleCog(bot))
