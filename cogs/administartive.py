@@ -1,7 +1,6 @@
 import common
 import asyncio
 import datetime
-from common import bot
 
 gp_list = ['Экологи','Долг','Воля','Нейтралы','Бандиты','Грех','Ворон','Ренегаты','Чистое Небо','Черный рынок','Наёмники']
 admin_roles = ['Создатель','Тех. Администратор','Администратор']
@@ -130,39 +129,7 @@ class Administrative(common.commands.Cog):
         
         # Remove the role
         await member.remove_roles(role)
-    
-    @common.commands.slash_command(name="poll", description="команда для создания системы голосований")
-    async def poll(ctx, question, *options: str):
-        if len(options) <= 1:
-            await ctx.send("Система должна иметь больше одной опции!")
-            return
-        if len(options) > 3:
-            await ctx.send("Система не должна иметь больше чем 3 опции!")
-            return
-        
-        # Create the poll message
-        embed = common.discord.Embed(title="Голосование", description=question, color=0x00ff00)
-        fields = [("Опции", "\n".join([f"{i+1}. {option}" for i, option in enumerate(options)]), False),
-                ("Инструкции", "Поставьте реакцию чтобы проголосовать", False)]
-        for name, value, inline in fields:
-            embed.add_field(name=name, value=value, inline=inline)
-        
-        poll_message = await ctx.send(embed=embed)  
-        active_polls.add(poll_message.id)# Sending the poll message
-        for emoji in (u"\U00000031\U0000FE0F\U000020E3", u"\U00000032\U0000FE0F\U000020E3", u"\U00000033\U0000FE0F\U000020E3", 
-                    u"\U00000034\U0000FE0F\U000020E3", u"\U00000035\U0000FE0F\U000020E3", u"\U00000036\U0000FE0F\U000020E3", 
-                    u"\U00000037\U0000FE0F\U000020E3", u"\U00000038\U0000FE0F\U000020E3", u"\U00000039\U0000FE0F\U000020E3", 
-                    u"\U00000030\U0000FE0F\U000020E3")[:len(options)]:
-            await poll_message.add_reaction(emoji)  # Add reactions for voting
-
-
-    @bot.event
-    async def on_reaction_add(reaction, user):
-        if user == common.bot.user:
-            return
-        if reaction.message.id not in active_polls:
-            return  # Only process reactions on active polls
-        
+            
 
 def setup(bot):
     bot.add_cog(Administrative(bot))
