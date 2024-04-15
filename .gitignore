@@ -4,3 +4,5 @@
 
 *.db*
 *.log*
+Dockerfile
+docker-compose.yml
