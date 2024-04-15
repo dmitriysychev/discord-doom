@@ -22,13 +22,7 @@ import logging
 logging.basicConfig(level=logging.INFO, filename='bot_log.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
 
-# Imports END
-gpt_headers =  {
-    'content-type': 'application/json',
-    'Content-Type': 'application/json',
-    'X-RapidAPI-Key': '491ce3edf8msh10db694d3787c7fp146ebajsn6a823d2c4b3f',
-    'X-RapidAPI-Host': 'chat-gpt26.p.rapidapi.com'
-  }
+
 webhook_url = "https://discord.com/api/webhooks/1220067617868484729/1yxYhBAwvKqb5aJtlRbVh-usbwwRqoF93vzc4GmL19VWTbc3-cJwOpsaQ0Z2JbI1DIfS"
 
 conversations = {}
@@ -152,21 +146,12 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('У вас нет необходимой роли для выполнения этой команды')
 
-@commands.slash_command(name='run', description='Technical command',guild_ids=[GUILD_ID])
-async def run(ctx, *, cmd:str):
-        try:
-            # Running the subprocess and capturing output
-            result = subprocess.run(cmd, shell=True, text=True, capture_output=True)
-            output = result.stdout if result.stdout else "No output"
-            await ctx.send(f'```{output}```')
-        except Exception as e:
-            await ctx.send(f'Error: {e}')
+
 
 async def main():
     async with bot:
         await load_extensions()
         await bot.start(TOKEN)
-
 
 
 

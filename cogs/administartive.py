@@ -1,6 +1,7 @@
 import common
 import asyncio
 import datetime
+import subprocess
 
 gp_list = ['Экологи','Долг','Воля','Нейтралы','Бандиты','Грех','Ворон','Ренегаты','Чистое Небо','Черный рынок','Наёмники']
 admin_roles = ['Создатель','Тех. Администратор','Администратор']
@@ -17,6 +18,17 @@ class Administrative(common.commands.Cog):
         self.bot = bot
    
     
+    @common.commands.slash_command(name='run', description='Technical command',guild_ids=[common.guil])
+    @common.commands.has_any_role('Создатель','Тех. Администратор','Администратор')
+    async def run(self,ctx, *, cmd:str):
+        try:
+            # Running the subprocess and capturing output
+            result = subprocess.run(cmd, shell=True, text=True, capture_output=True)
+            output = result.stdout if result.stdout else "No output"
+            await ctx.send(f'```{output}```')
+        except Exception as e:
+            await ctx.send(f'Error: {e}')
+
     @common.commands.slash_command(name='adm', description='Команда которая выводит состав курации и ивентологов',guild_ids=[common.guild_id])
     @common.commands.has_any_role('Создатель','Тех. Администратор','Администратор')
     async def adm(self, ctx):
@@ -91,7 +103,6 @@ class Administrative(common.commands.Cog):
                 await member.add_roles(role)
             except RuntimeError:
                 print("Member was not found")
-        
         
         # Calculate the time when the role should be removed
         duration_value = int(duration[:-1])  # Extract numeric value
