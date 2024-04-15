@@ -1,6 +1,7 @@
 import common
 import asyncio
 import datetime
+from common import bot
 
 gp_list = ['Экологи','Долг','Воля','Нейтралы','Бандиты','Грех','Ворон','Ренегаты','Чистое Небо','Черный рынок','Наёмники']
 admin_roles = ['Создатель','Тех. Администратор','Администратор']
@@ -155,7 +156,7 @@ class Administrative(common.commands.Cog):
             await poll_message.add_reaction(emoji)  # Add reactions for voting
 
 
-    @common.bot.event
+    @bot.event
     async def on_reaction_add(reaction, user):
         if user == common.bot.user:
             return
