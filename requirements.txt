@@ -3,5 +3,4 @@ python-dotenv
 opengsq
 asyncio
 pycord
-sqlite3
 requests
