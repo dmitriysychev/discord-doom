@@ -56,7 +56,7 @@ conn.commit()
 async def load_extensions():
     for f in os.listdir("./cogs"):
         if f.endswith(".py"):
-            bot.load_extension(f"cogs.{f[:-3]}")
+            await bot.load_extension(f"cogs.{f[:-3]}")
                     
     
 async def check_achievements(user_id):
