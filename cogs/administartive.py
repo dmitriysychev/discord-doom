@@ -17,7 +17,7 @@ class Administrative(common.commands.Cog):
         self.bot = bot
    
     
-    @common.commands.slash_command(name='adm', description='Команда которая выводит состав курации и ивентологов',guild_ids=[common.guild_id])
+    @common.commands.command(name='adm', description='Команда которая выводит состав курации и ивентологов',guild_ids=[common.guild_id])
     @common.commands.has_any_role('Создатель','Тех. Администратор','Администратор')
     async def adm(self, ctx):
         embed = common.discord.Embed(title="Курация и Ивентологи", color=common.discord.Color.green())
@@ -33,7 +33,7 @@ class Administrative(common.commands.Cog):
         await ctx.respond(embed=embed)
 
 
-    @common.commands.slash_command(name='gp', description='Команда которая выводит кураторов и их группировки',guild_ids=[common.guild_id])
+    @common.commands.command(name='gp', description='Команда которая выводит кураторов и их группировки',guild_ids=[common.guild_id])
     @common.commands.has_any_role('Создатель','Тех. Администратор','Администратор')
     async def gp(self, ctx):
         kurator_roles = ['Ст. РП Куратор','РП Куратор']
@@ -71,7 +71,7 @@ class Administrative(common.commands.Cog):
                         embed.add_field(name=role_embed, value="Не найдено кураторов", inline=False)
         await ctx.respond(embed=embed)
         
-    @common.commands.slash_command(name='cls', description='Команда которая чистит количество сообщений',guild_ids=[common.guild_id])
+    @common.commands.command(name='cls', description='Команда которая чистит количество сообщений',guild_ids=[common.guild_id])
     @common.commands.has_any_role('Создатель','Тех. Администратор','Администратор')
     async def cls(self, ctx, amount: int):
             # Check if the user has permissions to manage messages
@@ -79,7 +79,7 @@ class Administrative(common.commands.Cog):
         await ctx.channel.purge(limit=amount + 1)
         await ctx.response.send_message(f'{amount} сообщений очищено', ephemeral=True)
 
-    @common.commands.slash_command(name='ro', description='Команда которая выдает РО',guild_ids=[common.guild_id])
+    @common.commands.command(name='ro', description='Команда которая выдает РО',guild_ids=[common.guild_id])
     @common.commands.has_any_role('Создатель','Тех. Администратор','Администратор')
     async def ro(self, ctx, member: common.discord.Member, duration:str, reason: str):
         role = common.discord.utils.get(ctx.guild.roles, name='READ ONLY')
