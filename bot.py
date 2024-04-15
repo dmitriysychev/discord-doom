@@ -31,7 +31,7 @@ webhook_url = "https://discord.com/api/webhooks/1220067617868484729/1yxYhBAwvKqb
 
 conversations = {}
 achievements = {
-    "Опытный мужик": {"message_count": 5, "description": "Отправил 500 сообщений!"},
+    "Опытный мужик": {"message_count": 500, "description": "Отправил 500 сообщений!"},
     "Сталкер со стажем": {"voice_minutes": 200, "description": "Потратил 200 минут в войс чате!"}
 }
 
