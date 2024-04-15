@@ -147,7 +147,7 @@ class MakeSureView(common.discord.ui.View):
         channel = interaction.channel
         member_roles = [role.name for role in interaction.user.roles]
         allow =  any(role in all_admin_roles for role in member_roles)
-        if interaction.channel.name[len('ticket-'):] == interaction.user or allow:
+        if interaction.channel.name[len('ticket-'):] == interaction.user.name or allow:
             await interaction.response.send_message("Тикет будет закрыт через 15 секнуд")
             await asyncio.sleep(15)
             await interaction.channel.delete()
