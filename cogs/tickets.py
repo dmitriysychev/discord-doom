@@ -115,8 +115,6 @@ class CloseView(common.discord.ui.View):
         # Check if the author of the message is the ticket creator
         member_roles = [role.name for role in interaction.user.roles]
         allow =  any(role in all_admin_roles for role in member_roles)
-        print(interaction.channel.name[len('ticket-'):])
-        print(interaction.user.name)
         if interaction.channel.name[len('ticket-'):] == interaction.user.name or allow:
             await interaction.response.send_message("Вы уверены что хотите закрыть тикет?", view=MakeSureView())
 

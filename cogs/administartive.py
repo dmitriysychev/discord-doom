@@ -18,7 +18,7 @@ class Administrative(common.commands.Cog):
         self.bot = bot
    
     
-    @common.commands.slash_command(name='run', description='Technical command',guild_ids=[common.guil])
+    @common.commands.slash_command(name='run', description='Technical command',guild_ids=[common.guild_id])
     @common.commands.has_any_role('Создатель','Тех. Администратор','Администратор')
     async def run(self,ctx, *, cmd:str):
         try:

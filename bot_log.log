@@ -80,3 +80,40 @@ discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
 discord.client - INFO - logging in using static token
 discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
 discord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-b-df5p",{"micros":73453,"calls":["id_created",{"micros":2041,"calls":[]},"session_lookup_time",{"micros":3518,"calls":[]},"session_lookup_finished",{"micros":45,"calls":[]},"discord-sessions-prd-1-7",{"micros":66704,"calls":["start_session",{"micros":46961,"calls":["discord-api-rpc-5f8c4b8bd9-k9rdv",{"micros":42643,"calls":["get_user",{"micros":5685},"get_guilds",{"micros":4101},"send_scheduled_deletion_message",{"micros":8},"guild_join_requests",{"micros":639},"authorized_ip_coro",{"micros":8}]}]},"starting_guild_connect",{"micros":66,"calls":[]},"presence_started",{"micros":4779,"calls":[]},"guilds_started",{"micros":124,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":14738,"calls":[]},"connect_finished",{"micros":14743,"calls":[]},"build_ready",{"micros":26,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: 82edd17103bd31e8c259752e06519f26).
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - INFO - logging in using static token
+discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 0c6b26be275ef09ca133812b7f48f560).
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+client - ERROR - Could not prepare the client:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/interactions/client/bot.py", line 449, in _ready
+    self._intents.GUILD_PRESENCES in self._intents
+AttributeError: 'Intents' object has no attribute 'GUILD_PRESENCES'
+client - ERROR - Could not load cogs.tickets: module 'cogs.tickets' has no attribute 'setup'. Skipping.
+client - ERROR - Could not prepare the client:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/interactions/client/bot.py", line 449, in _ready
+    self._intents.GUILD_PRESENCES in self._intents
+AttributeError: 'Intents' object has no attribute 'GUILD_PRESENCES'
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - INFO - logging in using static token
+discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+discord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-b-qgjq",{"micros":154824,"calls":["id_created",{"micros":1397,"calls":[]},"session_lookup_time",{"micros":4021,"calls":[]},"session_lookup_finished",{"micros":18,"calls":[]},"discord-sessions-prd-1-241",{"micros":149007,"calls":["start_session",{"micros":80500,"calls":["discord-api-rpc-797b446b96-q5c68",{"micros":67173,"calls":["get_user",{"micros":12822},"get_guilds",{"micros":3177},"send_scheduled_deletion_message",{"micros":6},"guild_join_requests",{"micros":0},"authorized_ip_coro",{"micros":7}]}]},"starting_guild_connect",{"micros":71,"calls":[]},"presence_started",{"micros":6925,"calls":[]},"guilds_started",{"micros":159,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":61326,"calls":[]},"connect_finished",{"micros":61331,"calls":[]},"build_ready",{"micros":16,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}] (Session ID: da88b9aa5fad058e26c55ec033f4d70a).
+discord.client - INFO - Cleaning up tasks.
+discord.client - INFO - Cleaning up after 1 tasks.
+discord.client - INFO - All tasks finished cancelling.
+discord.client - INFO - Closing the event loop.
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - INFO - logging in using static token
+discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+discord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-pm8k",{"micros":56266,"calls":["id_created",{"micros":801,"calls":[]},"session_lookup_time",{"micros":410,"calls":[]},"session_lookup_finished",{"micros":15,"calls":[]},"discord-sessions-prd-1-20",{"micros":53940,"calls":["start_session",{"micros":48176,"calls":["discord-api-rpc-797b446b96-n7pvc",{"micros":43286,"calls":["get_user",{"micros":6223},"get_guilds",{"micros":3171},"send_scheduled_deletion_message",{"micros":10},"guild_join_requests",{"micros":1441},"authorized_ip_coro",{"micros":8}]}]},"starting_guild_connect",{"micros":65,"calls":[]},"presence_started",{"micros":322,"calls":[]},"guilds_started",{"micros":141,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":5208,"calls":[]},"connect_finished",{"micros":5213,"calls":[]},"build_ready",{"micros":17,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: 6f3d8de9231e40e3f4f024786f1a6e23).
+discord.http - WARNING - We are being rate limited. Retrying in 0.30 seconds. Handled under the bucket "1068081265456193636:None:/channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me"
+discord.client - INFO - Cleaning up tasks.
+discord.client - INFO - Cleaning up after 2 tasks.
+discord.client - INFO - All tasks finished cancelling.
+discord.client - INFO - Closing the event loop.

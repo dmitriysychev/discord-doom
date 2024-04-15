@@ -8,16 +8,14 @@ import openai
 import os
 import sqlite3
 import subprocess
-# import socket
+import aiohttp
+import asyncio
+import logging
+
 
 from dotenv import load_dotenv
 from opengsq.protocols import Source
-from discord.ext import commands
-import aiohttp
-import asyncio
 
-
-import logging
 
 logging.basicConfig(level=logging.INFO, filename='bot_log.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
@@ -41,7 +39,7 @@ GUILD_ID = os.getenv('GUILD_ID')
 JOIN_CHANNEL_ID = os.getenv('JOIN_CHANNEL_ID')
 
 # Client start
-bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
+bot = discord.Bot(intents=discord.Intents.all())
 conn = sqlite3.connect('achievements.db')
 c = conn.cursor()
 
@@ -49,12 +47,12 @@ c = conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS user_activity (user_id INTEGER PRIMARY KEY, message_count INTEGER, voice_minutes INTEGER, achievements TEXT)''')
 conn.commit()
 
-async def load_extensions():
+def load_extensions():
     for f in os.listdir("./cogs"):
         if f.endswith(".py"):
             bot.load_extension(f"cogs.{f[:-3]}")
-                    
-    
+                  
+
 async def check_achievements(user_id):
     c.execute('SELECT message_count, voice_minutes, achievements FROM user_activity WHERE user_id = ?', (user_id,))
     data = c.fetchone()
@@ -141,21 +139,10 @@ async def on_message(message):
             await message.channel.send(bot_response)
 
 
-@bot.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.errors.CheckFailure):
-        await ctx.send('У вас нет необходимой роли для выполнения этой команды')
+load_extensions()
 
+bot.run(TOKEN)
 
-
-async def main():
-    async with bot:
-        await load_extensions()
-        await bot.start(TOKEN)
-
-
-
-asyncio.run(main())
 
 
 
