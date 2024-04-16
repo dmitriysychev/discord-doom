@@ -117,3 +117,37 @@ discord.client - INFO - Cleaning up tasks.
 discord.client - INFO - Cleaning up after 2 tasks.
 discord.client - INFO - All tasks finished cancelling.
 discord.client - INFO - Closing the event loop.
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - INFO - logging in using static token
+discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+discord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-d-gc7j",{"micros":83494,"calls":["id_created",{"micros":1898,"calls":[]},"session_lookup_time",{"micros":337,"calls":[]},"session_lookup_finished",{"micros":15,"calls":[]},"discord-sessions-prd-1-66",{"micros":80752,"calls":["start_session",{"micros":63489,"calls":["discord-api-rpc-55bc54cc79-pnscz",{"micros":59125,"calls":["get_user",{"micros":6053},"get_guilds",{"micros":5671},"send_scheduled_deletion_message",{"micros":8},"guild_join_requests",{"micros":5604},"authorized_ip_coro",{"micros":8}]}]},"starting_guild_connect",{"micros":66,"calls":[]},"presence_started",{"micros":4196,"calls":[]},"guilds_started",{"micros":146,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":12829,"calls":[]},"connect_finished",{"micros":12834,"calls":[]},"build_ready",{"micros":17,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}] (Session ID: 67278b2f1981e19493884e3c63e8be06).
+discord.client - INFO - Cleaning up tasks.
+discord.client - INFO - Cleaning up after 2 tasks.
+discord.client - INFO - All tasks finished cancelling.
+discord.client - INFO - Closing the event loop.
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - INFO - logging in using static token
+discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+discord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-g2pn",{"micros":75779,"calls":["id_created",{"micros":1378,"calls":[]},"session_lookup_time",{"micros":1466,"calls":[]},"session_lookup_finished",{"micros":19,"calls":[]},"discord-sessions-prd-1-104",{"micros":72324,"calls":["start_session",{"micros":45974,"calls":["discord-api-rpc-55bc54cc79-624m4",{"micros":41662,"calls":["get_user",{"micros":6230},"get_guilds",{"micros":4028},"send_scheduled_deletion_message",{"micros":8},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":8}]}]},"starting_guild_connect",{"micros":67,"calls":[]},"presence_started",{"micros":13152,"calls":[]},"guilds_started",{"micros":142,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":12957,"calls":[]},"connect_finished",{"micros":12964,"calls":[]},"build_ready",{"micros":18,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: b6b1cff9145dfb4cdae6827b5987a194).
+discord.client - INFO - Cleaning up tasks.
+discord.client - INFO - Cleaning up after 1 tasks.
+discord.client - INFO - All tasks finished cancelling.
+discord.client - INFO - Closing the event loop.
+discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+discord.client - INFO - logging in using static token
+discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+discord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-d-bvh0",{"micros":111263,"calls":["id_created",{"micros":998,"calls":[]},"session_lookup_time",{"micros":385,"calls":[]},"session_lookup_finished",{"micros":11,"calls":[]},"discord-sessions-prd-1-87",{"micros":109245,"calls":["start_session",{"micros":90762,"calls":["discord-api-rpc-55bc54cc79-phtvm",{"micros":86131,"calls":["get_user",{"micros":5965},"get_guilds",{"micros":22211},"send_scheduled_deletion_message",{"micros":10},"guild_join_requests",{"micros":2},"authorized_ip_coro",{"micros":10}]}]},"starting_guild_connect",{"micros":62,"calls":[]},"presence_started",{"micros":2890,"calls":[]},"guilds_started",{"micros":1422,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":14083,"calls":[]},"connect_finished",{"micros":14090,"calls":[]},"build_ready",{"micros":14,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: 1147c4daff9b518d87336b4a46a767c5).
+discord.gateway - INFO - Websocket closed with WSCloseCode.OK, cannot reconnect.
+discord.client - ERROR - Attempting a reconnect in 0.99s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/discord/client.py", line 601, in connect
+    await self.ws.poll_event()
+  File "/usr/local/lib/python3.9/site-packages/discord/gateway.py", line 632, in poll_event
+    raise ConnectionClosed(
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+discord.gateway - INFO - Shard ID None has sent the RESUME payload.
+discord.gateway - INFO - Shard ID None has successfully RESUMED session 1147c4daff9b518d87336b4a46a767c5 under trace ["gateway-prd-us-east1-d-63zh",{"micros":3877,"calls":["id_created",{"micros":0,"calls":[]},"session_lookup_time",{"micros":2533,"calls":[]},"session_lookup_finished",{"micros":31,"calls":[]},"discord-sessions-prd-1-87",{"micros":23}]}].
+discord.client - INFO - Cleaning up tasks.
+discord.client - INFO - Cleaning up after 1 tasks.
+discord.client - INFO - All tasks finished cancelling.
+discord.client - INFO - Closing the event loop.

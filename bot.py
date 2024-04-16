@@ -37,6 +37,8 @@ TOKEN = os.getenv('TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 GUILD_ID = os.getenv('GUILD_ID')
 JOIN_CHANNEL_ID = os.getenv('JOIN_CHANNEL_ID')
+CREATE_RADIO_VC = 1061712749064896512
+CREATE_RADIO_VC_CAT = 1068119308410040410
 
 # Client start
 bot = discord.Bot(intents=discord.Intents.all())
@@ -85,6 +87,30 @@ async def on_member_join(member):
             embed.set_thumbnail(url=member.avatar_url)
         await channel.send(member.mention)
         await channel.send(embed=embed)
+
+# Создание рации
+@bot.event
+async def on_voice_state_update(member, before, after):
+
+    # channel = after.channel
+    # #1009681496375832586 = приемная
+    # if channel and channel.id == receptionVoiceChannelID and not member.bot:
+    #     await bot.get_channel(kuratorTextChannelID).send(f'Люди в ожидании!\n||<@&952559393180885032>, <@&952559538882621540>|| ')
+    channel = after.channel
+    try:
+        if before.channel.members == [] and not before.channel.id == CREATE_RADIO_VC:
+            if before.channel.category_id == CREATE_RADIO_VC_CAT:
+                await before.channel.delete()
+        if channel.id == CREATE_RADIO_VC:
+            channel = await after.channel.clone(name=f" Рация {member}" , reason = "Создание рации")
+            await member.move_to(channel)
+            await channel.edit(user_limit=5)
+    except:
+        pass
+        if channel and channel.id == CREATE_RADIO_VC:
+                channel = await after.channel.clone(name=f" Рация {member}", reason = "Создание рации")
+                await member.move_to(channel)
+                await channel.edit(user_limit=5)
 
 @bot.event
 async def on_message(message):

@@ -3,7 +3,8 @@ import asyncio
 import datetime
 from discord.ui import View, Button
 
-        
+TIME_TO_WAIT = 600 # in seconds
+
 class EndPollButton(common.discord.ui.Button):
     def __init__(self, message):
         super().__init__(style=common.discord.ButtonStyle.red, label="Закрыть голосование")
@@ -70,7 +71,7 @@ class PollCog(common.commands.Cog):
         await poll_message.edit(view=view)
 
         # Setup timer for the poll duration
-        await asyncio.sleep(600)  # Wait for 10 minutes
+        await asyncio.sleep(TIME_TO_WAIT)  # Wait for 10 minutes
         if not button.view.is_finished():
             await end_poll(poll_message, ctx.channel)
 
