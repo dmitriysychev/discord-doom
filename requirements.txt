@@ -3,4 +3,4 @@ opengsq
 asyncio
 py-cord
 requests
-openai
+openai==0.28
