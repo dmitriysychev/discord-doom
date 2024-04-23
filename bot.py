@@ -111,7 +111,7 @@ async def on_voice_state_update(member, before, after):
                 channel = await after.channel.clone(name=f" Рация {member}", reason = "Создание рации")
                 await member.move_to(channel)
                 await channel.edit(user_limit=5)
-'''
+
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
@@ -143,7 +143,7 @@ async def on_message(message):
         
         # Persistent character context and introduction for new conversation
         if not chat_history:  # if conversation history is empty
-            context = "The year is 2008. I am Doom, a stalker in the Chernobyl Exclusion Zone. Your answer needs to be no more than 317 characters."
+            context = "The year is 2008. I am Doom, a stalker in the Chernobyl Exclusion Zone. My reponses will be no more than 317 characters. My reponses will be rude and abrupt."
             chat_history.append({"role": "system", "content": context})
 
         chat_history.append({"role": "user", "content": user_query})
@@ -151,9 +151,9 @@ async def on_message(message):
             # Construct the prompt with all preceding messages
         async with message.channel.typing():
             response = openai.ChatCompletion.create(
-                model="gpt-4-turbo",
+                model="gpt-3.5-turbo-0125",
                 messages=chat_history,
-                max_tokens=150
+                max_tokens=317
             )
 
             # Get the response and add it to history
@@ -163,7 +163,7 @@ async def on_message(message):
     # Send the response to the Discord channel
             await asyncio.sleep(3)
             await message.channel.send(bot_response)
-'''
+
 
 load_extensions()
 
