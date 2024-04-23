@@ -129,40 +129,40 @@ async def on_message(message):
     conn.commit()
     await check_achievements(message.author.id)
     #Не отвечаем на сообщения от самого бота
-    if message.content.startswith('!ау'):
-        channel_id = message.channel.id
+    # if message.content.startswith('!ау'):
+    #     channel_id = message.channel.id
             
-            # Retrieve the current conversation history for the channel
-        if channel_id in conversations:
-            chat_history = conversations[channel_id]
-        else:
-            chat_history = []
-            conversations[channel_id] = chat_history
+    #         # Retrieve the current conversation history for the channel
+    #     if channel_id in conversations:
+    #         chat_history = conversations[channel_id]
+    #     else:
+    #         chat_history = []
+    #         conversations[channel_id] = chat_history
         
-        user_query = message.content[len('!ау '):]
+    #     user_query = message.content[len('!ау '):]
         
-        # Persistent character context and introduction for new conversation
-        if not chat_history:  # if conversation history is empty
-            context = "The year is 2008. I am Doom, a stalker in the Chernobyl Exclusion Zone. My reponses will be no more than 317 characters. My reponses will be rude and abrupt."
-            chat_history.append({"role": "system", "content": context})
+    #     # Persistent character context and introduction for new conversation
+    #     if not chat_history:  # if conversation history is empty
+    #         context = "The year is 2008. I am Doom, a stalker in the Chernobyl Exclusion Zone. My reponses will be no more than 317 characters. My reponses will be rude and abrupt."
+    #         chat_history.append({"role": "system", "content": context})
 
-        chat_history.append({"role": "user", "content": user_query})
+    #     chat_history.append({"role": "user", "content": user_query})
 
-            # Construct the prompt with all preceding messages
-        async with message.channel.typing():
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-0125",
-                messages=chat_history,
-                max_tokens=317
-            )
+    #         # Construct the prompt with all preceding messages
+    #     async with message.channel.typing():
+    #         response = openai.ChatCompletion.create(
+    #             model="gpt-3.5-turbo-0125",
+    #             messages=chat_history,
+    #             max_tokens=317
+    #         )
 
-            # Get the response and add it to history
-            bot_response = response['choices'][0]['message']['content']
-            chat_history.append({"role": "assistant", "content": bot_response})
+    #         # Get the response and add it to history
+    #         bot_response = response['choices'][0]['message']['content']
+    #         chat_history.append({"role": "assistant", "content": bot_response})
 
-    # Send the response to the Discord channel
-            await asyncio.sleep(3)
-            await message.channel.send(bot_response)
+    # # Send the response to the Discord channel
+    #         await asyncio.sleep(3)
+    #         await message.channel.send(bot_response)
 
 
 load_extensions()
