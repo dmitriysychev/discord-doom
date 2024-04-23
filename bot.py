@@ -111,7 +111,7 @@ async def on_voice_state_update(member, before, after):
                 channel = await after.channel.clone(name=f" Рация {member}", reason = "Создание рации")
                 await member.move_to(channel)
                 await channel.edit(user_limit=5)
-
+'''
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
@@ -163,7 +163,7 @@ async def on_message(message):
     # Send the response to the Discord channel
             await asyncio.sleep(3)
             await message.channel.send(bot_response)
-
+'''
 
 load_extensions()
 
