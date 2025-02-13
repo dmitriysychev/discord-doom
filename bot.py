@@ -26,7 +26,7 @@ logging.basicConfig(level=logging.INFO, filename='bot_log.log', filemode='a', fo
 gpt_headers =  {
     'content-type': 'application/json',
     'Content-Type': 'application/json',
-    'X-RapidAPI-Key': '491ce3edf8msh10db694d3787c7fp146ebajsn6a823d2c4b3f',
+    'X-RapidAPI-Key': '',
     'X-RapidAPI-Host': 'chat-gpt26.p.rapidapi.com'
   }
 webhook_url = "https://discord.com/api/webhooks/1220067617868484729/1yxYhBAwvKqb5aJtlRbVh-usbwwRqoF93vzc4GmL19VWTbc3-cJwOpsaQ0Z2JbI1DIfS"
